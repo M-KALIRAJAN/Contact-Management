@@ -38,10 +38,23 @@ router.get('/',async(req,res)=>{
 router.put("/:id",async(req,res)=>{
 try{
     const contact = await Contact.findByIdAndUpdate(
-        // req.params.id,
-    )
+        req.params.id,
+        req.body,
+        {new:true}
+    );
+    res.json(contact)
     
 }catch(err){
-
+  res.status(400).json({err:err.message})
 }
+})
+router.delete('/:id',async(req,res)=>{
+    try{
+     await Contact.findByIdAndDelete(
+         req.params.id,
+     )
+     res.json({message:"Contact deleted"})
+    }catch(err){
+        res.status(400).json({err:err.message})
+    } 
 })
