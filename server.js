@@ -1,10 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import contactRoutes from "./routes/contactRoutes"
 
 dotenv.config();
 
 const app = express();
+app.use('/contacts',contactRoutes)
 
 app.get('/',(req,res)=>{
     res.send("Server working fine ...")
