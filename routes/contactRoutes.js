@@ -3,6 +3,8 @@ import Contact from "../models/Contact";
 
 const router = express.Router();
 
+// POST ROUTE
+
 router.post("/",async(req,res)=>{
     try{
         const contact = new Contact(req.body);
@@ -58,3 +60,5 @@ router.delete('/:id',async(req,res)=>{
         res.status(400).json({err:err.message})
     } 
 })
+
+export default router;
