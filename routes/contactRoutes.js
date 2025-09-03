@@ -38,7 +38,7 @@ router.get('/',async(req,res)=>{
 router.put("/:id",async(req,res)=>{
 try{
     const contact = await Contact.findByIdAndUpdate(
-        req.params.id,
+        // req.params.id,
     )
     
 }catch(err){
